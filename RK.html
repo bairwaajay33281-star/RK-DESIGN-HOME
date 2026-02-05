@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-7">
+<title>RK DESIGN & CONSULTANT | Architecture Company</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+ --sky:#e0f2fe;
+ --blue:#38bdf8;
+ --dark:#0f172a;
+ --gold:#d4af37;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI}
+body{background:var(--sky);color:var(--dark)}
+
+/* ===== ENTRANCE ANIMATION ===== */
+#entrance{
+ position:fixed;inset:0;
+ background:linear-gradient(135deg,#f0f9ff,#e0f2fe);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ z-index:999;
+ animation:entranceOut 1s forwards;
+ animation-delay:2.8s;
+}
+.house{
+ width:260px;
+ animation:zoomHouse 2.5s ease forwards;
+}
+.logo-text{
+ position:absolute;
+ font-size:3.4rem;
+ font-weight:800;
+ letter-spacing:6px;
+ opacity:0;
+ animation:showLogo 1s ease forwards;
+ animation-delay:2s;
+}
+
+@keyframes zoomHouse{
+ from{transform:scale(1);opacity:1}
+ to{transform:scale(1.8);opacity:0}
+}
+@keyframes showLogo{
+ to{opacity:1}
+}
+@keyframes entranceOut{
+ to{opacity:0;visibility:hidden}
+}
+
+/* ===== REGISTRATION (MANDATORY) ===== */
+#register{
+ position:fixed;inset:0;
+ background:rgba(0,0,0,.6);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ z-index:998;
+}
+.reg-box{
+ background:white;
+ width:380px;
+ padding:35px;
+ border-radius:25px;
+ box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+.reg-box h2{
+ text-align:center;
+ color:#0284c7;
+ margin-bottom:20px;
+}
+.reg-box input{
+ width:100%;
+ padding:14px;
+ margin-bottom:12px;
+ border-radius:12px;
+ border:1px solid #ccc;
+ font-size:1rem;
+}
+.reg-box button{
+ width:100%;
+ padding:14px;
+ background:#0284c7;
+ color:white;
+ border:none;
+ border-radius:14px;
+ font-size:1.05rem;
+ cursor:pointer;
+}
+.error{
+ color:red;
+ font-size:.9rem;
+ text-align:center;
+ margin-top:10px;
+ display:none;
+}
+
+/* ===== HEADER ===== */
+header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:24px 6%;
+ background:white;
+ position:sticky;
+ top:0;
+ box-shadow:0 10px 30px rgba(0,0,0,.12);
+ z-index:10;
+}
+.brand{
+ font-size:2rem;
+ font-weight:900;
+ letter-spacing:3px;
+}
+nav a{
+ margin-left:22px;
+ text-decoration:none;
+ font-weight:600;
+ color:#334155;
+}
+
+/* ===== HERO ===== */
+.hero{
+ height:92vh;
+ background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;
+ display:flex;
+ align-items:center;
+ padding:6%;
+}
+.hero-box{
+ background:rgba(255,255,255,.95);
+ padding:55px;
+ border-radius:35px;
+ max-width:700px;
+}
+.hero-box h1{
+ font-size:4rem;
+}
+.hero-box p{
+ font-size:1.3rem;
+ margin-top:15px;
+}
+
+/* ===== SECTIONS ===== */
+section{
+ padding:100px 6%;
+}
+section h2{
+ font-size:3.3rem;
+ margin-bottom:35px;
+}
+
+/* ===== SERVICES ===== */
+.services{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:35px;
+}
+.service{
+ background:white;
+ border-radius:30px;
+ overflow:hidden;
+ box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
+.service img{
+ width:100%;
+ height:210px;
+ object-fit:cover;
+}
+.service div{
+ padding:28px;
+ font-size:1.35rem;
+ font-weight:600;
+}
+
+/* ===== REVIEWS ===== */
+.reviews{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+ gap:35px;
+}
+.review{
+ background:white;
+ padding:35px;
+ border-radius:30px;
+ box-shadow:0 18px 45px rgba(0,0,0,.15);
+ font-size:1.2rem;
+}
+
+/* ===== CONTACT ===== */
+.contact p{
+ font-size:1.6rem;
+ margin:15px 0;
+}
+
+/* ===== FOOTER ===== */
+footer{
+ background:#0f172a;
+ color:white;
+ padding:45px;
+ text-align:center;
+ font-size:1.1rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENTRANCE -->
+<div id="entrance">
+ <img class="house" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+ <div class="logo-text">RK DESIGN & CONSULTANT</div>
+</div>
+
+<!-- REGISTRATION (MANDATORY) -->
+<div id="register">
+ <div class="reg-box">
+  <h2>Client Registration</h2>
+  <input id="name" placeholder="Full Name">
+  <input id="mobile" placeholder="Mobile Number">
+  <input id="address" placeholder="Address">
+  <button onclick="registerClient()">Register & Enter</button>
+  <div class="error" id="errorMsg">⚠️ complete to form</div>
+ </div>
+</div>
+
+<header>
+ <div class="brand">RK DESIGN & CONSULTANT</div>
+ <nav>
+  <a href="#services">Services</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="#">Portfolio</a>
+  <a href="#">Careers</a>
+ </nav>
+</header>
+
+<div class="hero">
+ <div class="hero-box">
+  <h2>RK DESIGN & CONSULTANT</h2>
+  <p>Architecture • 2D • 3D • Elevation • Interior design• Site Supervision</p>
+ </div>
+</div>
+
+<section id="services">
+<h2>Our Architecture Services</h2>
+<div class="services">
+ <div class="service"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc"><div>2D Planning</div></div>
+ <div class="service"><img src="https://images.unsplash.com/photo-1592595896616-c37162298647"><div>3D Planning</div></div>
+ <div class="service"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea"><div>3D Elevation</div></div>
+ <div class="service"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d"><div>Interior Design</div></div>
+ <div class="service"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"><div>Construction Layout</div></div>
+ <div class="service"><img src="https://images.unsplash.com/photo-1600585154206-7c9f05c8aebf"><div>Site Supervision</div></div>
+</div>
+</section>
+
+<section id="reviews">
+<h2>Client Reviews</h2>
+<div class="reviews">
+ <div class="review">⭐⭐⭐⭐⭐<br>Big company level planning & supervision.</div>
+ <div class="review">⭐⭐⭐⭐⭐<br>Luxury design with practical execution.</div>
+ <div class="review">⭐⭐⭐⭐⭐<br>Professional team & on-time delivery.</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact Details</h2>
+<p><b>Er. Ravi Verma</b></p>
+<p>📞 9694760562</p>
+<p>9461223591</p>
+<p>In front of veterinary Hospital, N.H. 52 Kota Road, Jhalawar Rajasthan 326001</p>
+</section>
+
+<footer>
+© RK DESIGN & CONSULTANT| Enterprise Architecture Company
+</footer>
+
+<script>
+function registerClient(){
+ let n=document.getElementById("name").value.trim();
+ let m=document.getElementById("mobile").value.trim();
+ let a=document.getElementById("address").value.trim();
+
+ if(n==""||m==""||a==""){
+   document.getElementById("errorMsg").style.display="block";
+   return;
+ }
+
+ // ✅ BACKEND SMS API YAHAN CONNECT HOGA
+ // fetch("send-sms.php",{method:"POST",body:...})
+
+ document.getElementById("register").style.display="none";
+}
+</script>
+
+</body>
+</htm
